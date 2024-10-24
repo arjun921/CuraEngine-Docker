@@ -29,8 +29,18 @@ app.get("/", (req, res) => {
 });
 
 app.post("/slice", upload.single("uploaded_file"), (req, res) => {
+  // percentage should be float between 0 and 1
+  const infillPercentage = req.body.infill_percentage; 
+  const lineWidth = req.body.line_width;
+  const machine_nozzle_size = req.body.machine_nozzle_size;
+  const material_bed_temperature = req.body.material_bed_temperature;
+  const material_print_temperature = req.body.material_print_temperature;
+  // infill line distance = line width / infill percentage
+
+  infill_line_distance = lineWidth / infillPercentage;
+
   console.log(req.file);
-  sliceModel(req.file.filename);
+  sliceModel(req.file.filename, infill_line_distance, machine_nozzle_size, material_bed_temperature, material_print_temperature);
   res.download(`${appDir}/outputs/${req.file.filename.split(".")[0]}.gcode`);
 });
 

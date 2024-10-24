@@ -10,6 +10,7 @@ const sliceModel = (
   machine_nozzle_size,
   material_bed_temperature,
   material_print_temperature,
+  layer_height, 
   printer_def = "/exported_profile/ender3/default/creality_ender3.def.json" 
   // printer_def = "/exported_profile/profile/Cura/creality_ender3.def.json" # Doesnt work, created using unziped .3mf file after project to disk
   
@@ -30,6 +31,8 @@ const sliceModel = (
     -s default_material_bed_temperature=${material_bed_temperature} \
     -s material_bed_temperature=${material_bed_temperature} \
     -s material_bed_temperature_layer_0=${material_bed_temperature} \
+    -s layer_height=${layer_height} \
+    -s layer_height_0=${layer_height} \
     -l ${filePath}/${input_file}`,
     { encoding: "utf-8" }
   ); // the default is 'buffer'

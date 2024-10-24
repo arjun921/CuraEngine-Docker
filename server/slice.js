@@ -6,7 +6,7 @@ const filePath = `${appDir}/uploads`;
 
 const sliceModel = (
   input_file,
-  printer_def = "printer-settings/ultimaker3.def.json"
+  printer_def = "/exported_profile/ender3/creality_ender3.def.json"
 ) => {
   console.log("hello");
   const outputPath = `${appDir}/outputs/${input_file.split(".")[0]}.gcode`;

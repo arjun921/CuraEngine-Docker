@@ -52,3 +52,8 @@ ADD /server /server
 RUN apt install -y nodejs
 ARG CACHE_DATE=2016-01-01
 RUN cd server && npm install
+
+ADD cura-engine/exported_profile/ /exported_profile
+
+CMD node server/server.js
+# CMD CuraEngine help

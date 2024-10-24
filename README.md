@@ -1,4 +1,10 @@
 # CuraEngine-Docker
+
+# Running locally
+```
+docker build -t cura-node . && docker run -it -p 8080:8080 cura-node
+```
+
 Docker based deployment of CuraEngine with node.js API
 
 ## Instructions
